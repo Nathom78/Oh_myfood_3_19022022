@@ -1,0 +1,19 @@
+{
+  "name": "p3_lecomte_thomas",
+  "version": "1.0.0",
+  "description": "Projet 3 \"oh my food\"",
+  "main": "index.js",
+  "scripts": {
+    "sass":"sass --watch ./sass/main.scss:./css/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nathom78/ThomasLecomte_3_19022022.git"
+  },
+  "author": "T.L.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nathom78/ThomasLecomte_3_19022022/issues"
+  },
+  "homepage": "https://github.com/Nathom78/ThomasLecomte_3_19022022#readme"
+}

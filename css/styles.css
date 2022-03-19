@@ -1,0 +1,292 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "robotoregular";
+  src: url("roboto_regular_macroman/Roboto-Regular-webfont.eot") format("eot");
+  src: url("roboto_regular_macroman/Roboto-Regular-webfont.eot?#iefix") format("embedded-opentype");
+  src: url("roboto_regular_macroman/Roboto-Regular-webfont.woff") format("woff");
+  src: url("roboto_regular_macroman/Roboto-Regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Shrikhand";
+  src: url("Shrikhand/Shrikhand-Regular.ttf") format("truetype");
+}
+* {
+  box-sizing: border-box;
+  /* box-sizing est appliqué à tous les éléments */
+}
+
+/* @import "./6. Themes/heart"; */
+/*Styles globaux*/
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 900;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+/*Boutons*/
+.btn {
+  color: white;
+  padding: 20px 30px;
+  background: linear-gradient(170deg, #ff79da, #9356dc);
+  border-radius: 50px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+  transition: filter 450ms, box-shadow 300ms 150ms;
+}
+.btn:hover {
+  filter: brightness(115%);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+/*Coeurs*/
+.fa-heart {
+  opacity: 1;
+  position: relative;
+  cursor: pointer;
+}
+.fa-heart::after {
+  content: "\f004";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+.fa-heart:hover::after {
+  font-weight: 900;
+  opacity: 1;
+  
+  background: radial-gradient(ellipse at top,#ff79da, transparent), radial-gradient(ellipse at bottom, #9356dc, transparent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; 
+}
+
+/*Entête de page*/
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  /*Entête de page menu restaurant*/
+}
+.header__logo {
+  width: 220px;
+  padding: 20px 0;
+}
+.header__icon {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translate(-5%, -50%);
+  font-size: 25px;
+  color: black;
+}
+
+/*Corps de page accueil*/
+/*Section 1 accueil : localisation et recherche*/
+.search {
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.location {
+  background-color: rgba(128, 128, 128, 0.2);
+  width: 100%;
+  padding: 20px 0;
+}
+.location__input {
+  background-color: rgba(128, 128, 128, 0);
+  border: none;
+  text-align: center;
+  font-weight: 700;
+}
+
+.presentation {
+  width: 100%;
+  padding: 40px 20px 80px 20px;
+}
+.presentation__title {
+  padding: 0 15px;
+}
+.presentation__subtitle {
+  color: #666666;
+  font-size: 20px;
+  margin-bottom: 60px;
+}
+
+/*Section 2 accueil : fonctionnement et présentation*/
+.functioning {
+  padding: 50px 30px;
+}
+.functioning__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 30px 20px;
+}
+.functioning__item {
+  width: 100%;
+  min-width: 280px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 10px 20px 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  /*Passage en ligne des étapes fonctionnement sur écrans à partir de 992px*/
+}
+.functioning__item:hover {
+  background-color: #f2eafb;
+}
+.functioning__item:hover .functioning__icon {
+  color: #9356dc;
+}
+@media screen and (min-width: 992px) {
+  .functioning__item {
+    flex: 0 1 30%;
+  }
+}
+.functioning__number {
+  color: white;
+  background-color: #9356dc;
+  border-radius: 100%;
+  padding: 5px 10px;
+  margin-left: -15px;
+}
+.functioning__icon {
+  color: #666666;
+}
+.functioning__txt {
+  font-weight: 700;
+}
+
+/*Section 3 accueil : restaurants*/
+.restaurants {
+  background-color: #f2f2f2;
+  padding: 50px 30px;
+}
+.restaurants__container {
+  width: 100%;
+  padding: 30px 0px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.restaurants__link {
+  flex: 1 1 45%;
+}
+.restaurants__card {
+  position: relative;
+  width: 100%;
+  min-width: 280px;
+  height: 280px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+.restaurants__tag {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: #278870;
+  font-weight: bold;
+  background-color: #99e2d0;
+  padding: 5px 10px;
+}
+.restaurants__img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 20px 20px 0px 0px;
+}
+.restaurants__description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  line-height: 1.5em;
+}
+.restaurants .fa-heart {
+  font-size: 24px;
+}
+
+/*Pied de page global*/
+.footer {
+  background-color: #333333;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  /*Style footer sur tablette et desktop*/
+}
+.footer__logo {
+  font-family: "Shrikhand", sans-serif;
+  color: white;
+  font-size: 20px;
+}
+.footer__nav {
+  font-size: 16px;
+}
+.footer__list {
+  line-height: 1.8em;
+}
+.footer__link {
+  color: white;
+}
+.footer__icon {
+  padding-right: 10px;
+}
+.footer .fa-hands-helping {
+  font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  .footer {
+    flex-direction: row;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

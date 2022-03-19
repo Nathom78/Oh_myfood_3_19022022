@@ -5,8 +5,7 @@
     animation: heartBeat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   
-  .loader:before,
-  .loader:after {
+  .loader:before,.loader:after {
     content: "";
     background: #ff3d00 ;
     width: 40px;

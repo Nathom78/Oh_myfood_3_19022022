@@ -1,4 +1,6 @@
 @charset "UTF-8";
+/* @import "./6. Themes/heart"; */
+/* Polices */
 @font-face {
   font-family: "robotoregular";
   src: url("roboto_regular_macroman/Roboto-Regular-webfont.eot") format("eot");
@@ -12,13 +14,73 @@
   font-family: "Shrikhand";
   src: url("Shrikhand/Shrikhand-Regular.ttf") format("truetype");
 }
+/* Variables */
+/* Spinner loader */
+.lds-heart {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+}
+
+.lds-heart div {
+  top: 32px;
+  left: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+}
+
+.lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
+}
+
+.lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
+}
+
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+/*Styles globaux*/
 * {
   box-sizing: border-box;
   /* box-sizing est appliqué à tous les éléments */
 }
 
-/* @import "./6. Themes/heart"; */
-/*Styles globaux*/
 *, ::before, ::after {
   box-sizing: border-box;
   margin: 0;
@@ -58,7 +120,7 @@ li {
 .btn {
   color: white;
   padding: 20px 30px;
-  background: linear-gradient(170deg, #ff79da, #9356dc);
+  background: linear-gradient(80deg, #ff79da, #9356dc);
   border-radius: 50px;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
   transition: filter 450ms, box-shadow 300ms 150ms;
@@ -87,11 +149,10 @@ li {
 .fa-heart:hover::after {
   font-weight: 900;
   opacity: 1;
-  
-  background: radial-gradient(ellipse at top,#ff79da, transparent), radial-gradient(ellipse at bottom, #9356dc, transparent);
+  background: radial-gradient(ellipse at top, #ff79da, transparent), radial-gradient(ellipse at bottom, #9356dc, transparent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text; 
+  background-clip: text;
 }
 
 /*Entête de page*/
@@ -129,6 +190,7 @@ li {
 
 .location {
   background-color: rgba(128, 128, 128, 0.2);
+  /* variable? */
   width: 100%;
   padding: 20px 0;
 }

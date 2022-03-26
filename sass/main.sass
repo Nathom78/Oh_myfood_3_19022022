@@ -14,7 +14,7 @@
 
 /* Variables */
 
-$btn-active: null
+$max-width: 1600px
 $font-text:'Roboto', sans-serif
 $font-title: 'Shrikhand', sans-serif
 $primary-color: #9356dc
@@ -54,10 +54,7 @@ $transition-dish: width 500ms ease-in-out
 
     &--picture 
         width:200px
-        height:200px
-        
-
-
+        height:200px    
 
     @keyframes folk 
         0% 
@@ -75,8 +72,6 @@ $transition-dish: width 500ms ease-in-out
         90%, 100% 
             transform: rotate(0deg)
         
-    
-
     @keyframes loader 
         0% 
             opacity: 1
@@ -112,6 +107,18 @@ body
     font-family: $font-text
     font-size: 18px
 
+            
+header
+    width: 100%
+    max-width: $max-width
+
+main
+    width: 100%
+    max-width: $max-width
+
+footer
+    width: 100%
+    max-width: $max-width
 
 h1 
     font-size: 30px
@@ -127,11 +134,9 @@ h3
     font-size: 20px
     font-weight: 700
 
-
 a 
     text-decoration: none
     color: black
-
 
 li 
     list-style: none
@@ -142,7 +147,6 @@ li
 .btn_heart  
     background-color: white
     border: none
-
 
 .btn 
     color: white
@@ -178,17 +182,12 @@ li
     /* click sur le coeur sur mobile et survole sur desktop */
     @media screen and (max-width: 991px) 
         &:active::after  
-            $btn-active: true !global
-            @if $btn-active == true 
                 font-weight: 900
                 opacity: 1 
                 background: radial-gradient(ellipse at top,#ff79da, transparent), radial-gradient(ellipse at bottom, #9356dc, transparent)
                 -webkit-background-clip: text
                 -webkit-text-fill-color: transparent            
-                background-clip: text      
-                
-    
-           
+                background-clip: text         
     
     @media screen and (min-width: 992px) 
         &:hover::after  
@@ -198,12 +197,6 @@ li
             -webkit-background-clip: text
             -webkit-text-fill-color: transparent
             background-clip: text
-           
-    
-
-    
-
-
 
 /*Entête de page*/
 
@@ -215,7 +208,6 @@ li
         width: 220px
         padding: 20px 0
     
-
     /*Entête de page menu restaurant*/
    
     &__icon 
@@ -225,6 +217,7 @@ li
         transform: translate( -5%, -50% )
         font-size: 25px
         color:"black"
+        cursor: pointer
     
 
 
@@ -300,7 +293,7 @@ li
 
         /*Passage en ligne des étapes fonctionnement sur écrans à partir de 992px*/
 
-        @media screen and (min-width: 992px) 
+        @media screen and (min-width: 1050px) 
             flex: 0 1 30%
         
     
@@ -379,7 +372,7 @@ li
         font-size: 24px
     
     
-
+/* ----------------------- */
 /*Corps de page restaurant*/
 
 /*Section 1 page restaurant : bannière entête restaurant*/
@@ -390,7 +383,7 @@ li
     object-fit: cover
 
 
-/*Section 2 page restaurant : carte*/
+/*Section 2 page restaurant : carte */
 
 .menu 
     padding: 20px 30px 120px 30px
@@ -455,7 +448,6 @@ li
         @media screen and (min-width: 1024px) 
             flex: 0 1 32%
         
-    
 
     &__subtitle 
         text-transform: uppercase
@@ -505,9 +497,6 @@ li
             @media screen and (min-width: 1440px) 
                 width: 70%
             
-        
-        
-     
     
     &__dish-title 
         @include overflow
@@ -525,7 +514,6 @@ li
         @include overflow
         transition: $transition-dish
 
-    
 
     &__dish-price 
         font-weight: bold      
@@ -560,7 +548,7 @@ li
     
 
 
-/*Pied de page global*/
+/* --- Pied de page global ---*/
 
 .footer 
     background-color: #333333
@@ -585,7 +573,7 @@ li
     
     
     &__link 
-        color:"white"
+        color: white
     
 
     &__icon 
@@ -600,8 +588,13 @@ li
 
     @media screen and (min-width: 768px) 
         flex-direction: row
-    
+
+/* Body centrage pour écrans avec une grande résolution > $width-max */
+.centrage
+    display: flex
+    flex-direction: column
+    align-items: safe center
 
 
 /* animation site restaurant qui s'affiche dés le debut et fleche */
-/* btn-active coeur une fois liké reste nous sommes limité sans script
+/* btn-active coeur une fois liké, reste; nous sommes limité sans script

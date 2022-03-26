@@ -1,5 +1,4 @@
 @charset "UTF-8";
-/* @import "./6. Themes/heart"; */
 /* Polices */
 @font-face {
   font-family: "robotoregular";
@@ -9,8 +8,6 @@
   src: url("roboto_regular_macroman/Roboto-Regular-webfont.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-}
-@font-face {
   font-family: "Shrikhand";
   src: url("Shrikhand/Shrikhand-Regular.ttf") format("truetype");
 }
@@ -27,58 +24,29 @@
   animation: loader 3s ease-in 0s both;
 }
 
-.lds-heart {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-  transform: rotate(45deg);
-  transform-origin: 40px 40px;
+.folk {
+  transform: rotate(0deg);
+  animation: folk 0.6s cubic-bezier(0.84, 0.04, 0.16, 0.94) infinite;
 }
-.lds-heart div {
-  position: absolute;
-  top: 32px;
-  left: 32px;
-  width: 32px;
-  height: 32px;
-  background: red;
-  animation: lds-heart 1.5s 2 cubic-bezier(0.215, 0.61, 0.355, 1);
+.folk--picture {
+  width: 200px;
+  height: 200px;
 }
-.lds-heart div::after, .lds-heart div::before {
-  content: " ";
-  position: absolute;
-  display: block;
-  width: 32px;
-  height: 32px;
-  background: red;
-}
-.lds-heart div::before {
-  left: -24px;
-  border-radius: 50% 0 0 50%;
-}
-.lds-heart div::after {
-  top: -24px;
-  border-radius: 50% 50% 0 0;
-}
-
-@keyframes lds-heart {
+@keyframes folk {
   0% {
-    transform: scale(0.95);
+    transform: rotate(0deg);
   }
-  5% {
-    transform: scale(1.1);
+  25% {
+    transform: rotate(-45deg);
   }
-  39% {
-    transform: scale(0.85);
+  50% {
+    transform: rotate(0deg);
   }
-  45% {
-    transform: scale(1);
+  75% {
+    transform: rotate(45deg);
   }
-  60% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(0.9);
+  90%, 100% {
+    transform: rotate(0deg);
   }
 }
 @keyframes loader {
@@ -87,7 +55,7 @@
     z-index: 10;
   }
   60% {
-    opacity: 0.6;
+    opacity: 0.7;
     z-index: 10;
   }
   100% {
@@ -95,10 +63,10 @@
     z-index: -10;
   }
 }
+
 /*Styles globaux*/
 * {
   box-sizing: border-box;
-  /* box-sizing est appliqué à tous les éléments */
 }
 
 *, ::before, ::after {
@@ -110,6 +78,21 @@
 body {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
+}
+
+header {
+  width: 100%;
+  max-width: 1600px;
+}
+
+main {
+  width: 100%;
+  max-width: 1600px;
+}
+
+footer {
+  width: 100%;
+  max-width: 1600px;
 }
 
 h1 {
@@ -137,10 +120,15 @@ li {
 }
 
 /*Boutons*/
+.btn_heart {
+  background-color: white;
+  border: none;
+}
+
 .btn {
   color: white;
   padding: 20px 30px;
-  background: linear-gradient(80deg, #ff79da, #9356dc);
+  background: linear-gradient(180deg, #ff79da, #9356dc);
   border-radius: 50px;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
   transition: filter 450ms, box-shadow 300ms 150ms;
@@ -155,6 +143,7 @@ li {
   opacity: 1;
   position: relative;
   cursor: pointer;
+  /* click sur le coeur sur mobile et survole sur desktop */
 }
 .fa-heart::after {
   content: "\f004";
@@ -166,13 +155,25 @@ li {
   opacity: 0;
   transition: opacity 1s ease-out;
 }
-.fa-heart:hover::after {
-  font-weight: 900;
-  opacity: 1;
-  background: radial-gradient(ellipse at top, #ff79da, transparent), radial-gradient(ellipse at bottom, #9356dc, transparent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+@media screen and (max-width: 991px) {
+  .fa-heart:active::after {
+    font-weight: 900;
+    opacity: 1;
+    background: radial-gradient(ellipse at top, #ff79da, transparent), radial-gradient(ellipse at bottom, #9356dc, transparent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+@media screen and (min-width: 992px) {
+  .fa-heart:hover::after {
+    font-weight: 900;
+    opacity: 1;
+    background: radial-gradient(ellipse at top, #ff79da, transparent), radial-gradient(ellipse at bottom, #9356dc, transparent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
 /*Entête de page*/
@@ -194,10 +195,11 @@ li {
   top: 50%;
   transform: translate(-5%, -50%);
   font-size: 25px;
-  color: black;
+  color: "black";
+  cursor: pointer;
 }
 
-/*Corps de page accueil*/
+/*Corps de la page d'accueil (Home)*/
 /*Section 1 accueil : localisation et recherche*/
 .search {
   background-color: #f2f2f2;
@@ -210,7 +212,6 @@ li {
 
 .location {
   background-color: rgba(128, 128, 128, 0.2);
-  /* variable? */
   width: 100%;
   padding: 20px 0;
 }
@@ -265,7 +266,7 @@ li {
 .functioning__item:hover .functioning__icon {
   color: #9356dc;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1050px) {
   .functioning__item {
     flex: 0 1 30%;
   }
@@ -335,7 +336,168 @@ li {
   font-size: 24px;
 }
 
-/*Pied de page global*/
+/* ----------------------- */
+/*Corps de page restaurant*/
+/*Section 1 page restaurant : bannière entête restaurant*/
+.banner {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/*Section 2 page restaurant : carte */
+.menu {
+  padding: 20px 30px 120px 30px;
+  background-color: #f2f2f2;
+  border-radius: 50px 50px 0px 0px;
+  margin-top: -50px;
+  position: relative;
+}
+.menu__restaurants-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.menu__title {
+  font-family: "Shrikhand", sans-serif;
+  font-weight: 400;
+}
+.menu__icon {
+  font-size: 28px;
+}
+.menu__card {
+  width: 100%;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.menu__dishes {
+  width: 100%;
+  min-width: 280px;
+  padding-bottom: 20px;
+  /*Passage sur 3 colonnes des plats sur écrans à partir de 1024px)*/
+}
+.menu__dishes:nth-child(1) {
+  animation: slide-up 1500ms ease-in-out 100ms;
+}
+.menu__dishes:nth-child(2) {
+  animation: slide-up 2500ms ease-in-out 100ms;
+}
+.menu__dishes:nth-child(3) {
+  animation: slide-up 3500ms ease-in-out 100ms;
+}
+@keyframes slide-up {
+  0% {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .menu__dishes {
+    flex: 0 1 32%;
+  }
+}
+.menu__subtitle {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7em;
+}
+.menu__separator {
+  height: 4px;
+  width: 45px;
+  background-color: #99e2d0;
+  border: none;
+}
+.menu__dish {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  margin: 20px -5px;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  line-height: 1.7em;
+  cursor: pointer;
+}
+.menu__dish:hover .menu__dish-price {
+  transform: translateX(-80px);
+}
+.menu__dish:hover .menu__dish-checkbox {
+  transform: translateX(-100%);
+}
+.menu__dish:hover .menu__dish-check {
+  transform: rotate(360deg);
+}
+.menu__dish:hover .menu__dish-title {
+  width: 70%;
+}
+.menu__dish:hover .menu__dish-composition {
+  width: 50%;
+}
+@media screen and (min-width: 1440px) {
+  .menu__dish:hover .menu__dish-composition {
+    width: 70%;
+  }
+}
+.menu__dish-title {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 500ms ease-in-out;
+}
+.menu__dish-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.menu__dish-composition {
+  font-size: 16px;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 500ms ease-in-out;
+}
+.menu__dish-price {
+  font-weight: bold;
+  transition: transform 500ms ease-in-out;
+}
+.menu__dish-checkbox {
+  position: absolute;
+  left: 100%;
+  bottom: 0;
+  width: 80px;
+  height: 100%;
+  background-color: #99e2d0;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 500ms ease-in-out;
+}
+.menu__dish-check {
+  color: white;
+  font-size: 30px;
+  font-weight: 900;
+  transition: transform 500ms ease-in-out;
+}
+.menu__btn {
+  padding: 20px 50px;
+  margin-bottom: 80px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* --- Pied de page global ---*/
 .footer {
   background-color: #333333;
   padding: 30px;
@@ -370,5 +532,15 @@ li {
     flex-direction: row;
   }
 }
+
+/* Body centrage pour écrans avec une grande résolution > $width-max */
+.centrage {
+  display: flex;
+  flex-direction: column;
+  align-items: safe center;
+}
+
+/* animation site restaurant qui s'affiche dés le debut et fleche */
+/* btn-active coeur une fois liké, reste; nous sommes limité sans script */
 
 /*# sourceMappingURL=styles.css.map */

@@ -162,7 +162,6 @@ li {
     background: radial-gradient(ellipse at top, #ff79da, transparent), radial-gradient(ellipse at bottom, #9356dc, transparent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 }
 @media screen and (min-width: 992px) {
@@ -172,7 +171,6 @@ li {
     background: radial-gradient(ellipse at top, #ff79da, transparent), radial-gradient(ellipse at bottom, #9356dc, transparent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 }
 
@@ -195,7 +193,7 @@ li {
   top: 50%;
   transform: translate(-5%, -50%);
   font-size: 25px;
-  color: "black";
+  color: black;
   cursor: pointer;
 }
 

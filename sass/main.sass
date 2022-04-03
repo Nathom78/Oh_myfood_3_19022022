@@ -294,9 +294,9 @@ li
             
         
 
-        /*Passage en ligne des étapes fonctionnement sur écrans à partir de 992px*/
+        /*Passage en ligne des étapes fonctionnement sur écrans à partir de 992px (ajusté à 1050 pour un calcul plus fluide du navigateur)  */ 
 
-        @media screen and (min-width: 1050px) 
+        @media screen and (min-width: 1050px)
             flex: 0 1 30%
     
 
@@ -494,9 +494,9 @@ li
         
 
         &:hover .menu__dish-composition 
-            width: 50%
-
-            @media screen and (min-width: 1440px) 
+            width: 65%
+            /* compensation pour la largeur avec le prix
+            @media screen and (min-width: 460px) 
                 width: 70%
             
     

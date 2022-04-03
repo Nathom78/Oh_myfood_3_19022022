@@ -256,7 +256,7 @@ li {
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
-  /*Passage en ligne des étapes fonctionnement sur écrans à partir de 992px*/
+  /*Passage en ligne des étapes fonctionnement sur écrans à partir de 992px (ajusté à 1050 pour un calcul plus fluide du navigateur)  */ 
 }
 .functioning__item:hover {
   background-color: #f2eafb;
@@ -437,9 +437,10 @@ li {
   width: 70%;
 }
 .menu__dish:hover .menu__dish-composition {
-  width: 50%;
+  width: 65%;
+  /* compensation pour la largeur avec le prix */
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 460px) {
   .menu__dish:hover .menu__dish-composition {
     width: 70%;
   }

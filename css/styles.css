@@ -125,6 +125,11 @@ li {
   border: none;
 }
 
+.btn_heart_menu {
+  border: none;
+  background-color: #f2f2f2;
+}
+
 .btn {
   color: white;
   padding: 20px 30px;
@@ -424,23 +429,48 @@ li {
   line-height: 1.7em;
   cursor: pointer;
 }
-.menu__dish:hover .menu__dish-price {
-  transform: translateX(-80px);
+@media screen and (max-width: 991px) {
+  .menu__dish:active .menu__dish-price {
+    transform: translateX(-80px);
+  }
+  .menu__dish:active .menu__dish-checkbox {
+    transform: translateX(-100%);
+  }
+  .menu__dish:active .menu__dish-check {
+    transform: rotate(360deg);
+  }
+  .menu__dish:active .menu__dish-title {
+    width: 70%;
+  }
+  .menu__dish:active .menu__dish-composition {
+    width: 65%;
+    /* compensation pour la largeur avec le prix */
+  }
 }
-.menu__dish:hover .menu__dish-checkbox {
-  transform: translateX(-100%);
+@media screen and (max-width: 991px) and (min-width: 460px) {
+  .menu__dish:active .menu__dish-composition {
+    width: 70%;
+  }
 }
-.menu__dish:hover .menu__dish-check {
-  transform: rotate(360deg);
+@media screen and (min-width: 992px) {
+  .menu__dish:hover .menu__dish-price {
+    transform: translateX(-80px);
+  }
+  .menu__dish:hover .menu__dish-checkbox {
+    transform: translateX(-100%);
+  }
+  .menu__dish:hover .menu__dish-check {
+    transform: rotate(360deg);
+  }
+  .menu__dish:hover .menu__dish-title {
+    width: 70%;
+  }
+  .menu__dish:hover .menu__dish-composition {
+    width: 65%;
+    /* compensation pour la largeur avec le prix */
+  }
 }
-.menu__dish:hover .menu__dish-title {
-  width: 70%;
-}
-.menu__dish:hover .menu__dish-composition {
-  width: 65%;
-  /* compensation pour la largeur avec le prix */
-}
-@media screen and (min-width: 460px) {
+@media screen and (min-width: 992px) and (min-width: 460px) {
   .menu__dish:hover .menu__dish-composition {
     width: 70%;
   }

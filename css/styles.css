@@ -261,7 +261,7 @@ li {
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
-  /*Passage en ligne des étapes fonctionnement sur écrans à partir de 992px (ajusté à 1050 pour un calcul plus fluide du navigateur)  */ 
+  /*Passage en ligne des étapes fonctionnement sur écrans à partir de 992px  */ 
 }
 .functioning__item:hover {
   background-color: #f2eafb;
@@ -269,7 +269,7 @@ li {
 .functioning__item:hover .functioning__icon {
   color: #9356dc;
 }
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 992px) {
   .functioning__item {
     flex: 0 1 30%;
   }
